@@ -1,2 +1,2 @@
 # online-learning-platform-mern
-A full-stack MERN platform for learning and teaching online — users can buy and sell courses, make secure payments via Stripe, and admins can manage all courses through an authenticated Admin Dashboard.
+A full-stack online learning platform built with the MERN stack, where users can buy and sell recorded courses. It includes secure payment integration with Stripe and an admin dashboard for managing courses with proper authentication.
