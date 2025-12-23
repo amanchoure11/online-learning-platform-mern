@@ -20,21 +20,25 @@ function App() {
   return (
     <div>
       <Routes>
-        < Route path="/" element={<Home />} />
-        < Route path="/login" element={<Login />} />
-        < Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
         {/* Other Routes */}
         <Route path="/courses" element={<Courses />} />
         <Route path="/buy/:courseId" element={<Buy />} />
-        
-                  
-        <Route path="/purchases" element={
-    localStorage.getItem("token")
-      ? <Purchases />
-      : <Navigate to="/login" />
-  }
+
+        <Route
+          path="/purchases"
+          element={
+            JSON.parse(localStorage.getItem("user")) ? (
+              <Purchases />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
+
         {/* you can use below one if required */}
         {/* <Route path="/purchases" element={<Purchases/>} /> */}
         {/* Admin Routes */}
