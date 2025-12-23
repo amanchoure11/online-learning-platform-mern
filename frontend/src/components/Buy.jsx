@@ -122,13 +122,14 @@ function Buy() {
         })
         .then((response) => {
           console.log(response.data);
+          toast.success("Payment Successful");
+          navigate("/purchases");
         })
         .catch((error) => {
           console.log(error);
           toast.error("Error in making payment");
         });
-      toast.success("Payment Successful");
-      navigate("/purchases");
+      
     }
     setLoading(false);
   };
