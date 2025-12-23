@@ -29,7 +29,11 @@ function App() {
         <Route path="/buy/:courseId" element={<Buy />} />
         
                   
-        <Route path="/purchases" element={user ? <Purchases /> : <Navigate to={"/login"} />}
+        <Route path="/purchases" element={
+    localStorage.getItem("token")
+      ? <Purchases />
+      : <Navigate to="/login" />
+  }
         />
         {/* you can use below one if required */}
         {/* <Route path="/purchases" element={<Purchases/>} /> */}
