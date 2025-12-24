@@ -162,17 +162,17 @@ function Home() {
           <Slider {...settings}>
             {courses.map((course) => (
               <div key={course._id} className="px-3">
-                <div className="bg-gray-900 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 w-full md:w-[280px] mx-auto">
+                <div className="bg-gray-900 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 md:w-[260px] mx-auto">
                   {/* Image */}
                   <img
-                    className="h-36 w-full object-contain md:object-cover"
+                    className="h-36 w-full object-cover"
                     src={course.image.url}
                     alt={course.title}
                   />
 
                   {/* Content */}
-                  <div className="p-6 text-center">
-                    <h2 className="text-lg font-bold text-white mb-4">
+                  <div className="p-4 text-center">
+                    <h2 className="text-base font-bold text-white mb-4">
                       {course.title}
                     </h2>
 
