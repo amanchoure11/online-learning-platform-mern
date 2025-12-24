@@ -158,28 +158,30 @@ function Home() {
             </Link>
           </div>
         </section>
-        <section className="p-10">
-          <Slider className="" {...settings}>
+        <section className="px-4 md:px-10 py-10">
+          <Slider {...settings}>
             {courses.map((course) => (
-              <div key={course._id} className="p-4">
-                <div className="relative flex-shrink-0 w-92 transition-transform duration-300 transform hover:scale-105">
-                  <div className="bg-gray-900 rounded-lg overflow-hidden">
-                    <img
-                      className="h-32 w-full object-contain"
-                      src={course.image.url}
-                      alt=""
-                    />
-                    <div className="p-6 text-center">
-                      <h2 className="text-xl font-bold text-white">
-                        {course.title}
-                      </h2>
-                      <Link
-                        to={`/buy/${course._id}`}
-                        className="mt-8 bg-orange-500 text-white py-2 px-4 rounded-full hover:bg-blue-500 duration-300"
-                      >
-                        Enroll Now
-                      </Link>
-                    </div>
+              <div key={course._id} className="px-3">
+                <div className="bg-gray-900 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 w-full md:w-[280px] mx-auto">
+                  {/* Image */}
+                  <img
+                    className="h-36 w-full object-contain md:object-cover"
+                    src={course.image.url}
+                    alt={course.title}
+                  />
+
+                  {/* Content */}
+                  <div className="p-6 text-center">
+                    <h2 className="text-lg font-bold text-white mb-4">
+                      {course.title}
+                    </h2>
+
+                    <Link
+                      to={`/buy/${course._id}`}
+                      className="inline-block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-blue-500 duration-300 text-sm"
+                    >
+                      Enroll Now
+                    </Link>
                   </div>
                 </div>
               </div>
