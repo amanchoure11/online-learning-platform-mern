@@ -140,9 +140,9 @@ function Signup() {
                   placeholder="********"
                   required
                 />
-                <span className="absolute right-3 top-3 text-gray-500 cursor-pointer">
+                {/* <span className="absolute right-3 top-3 text-gray-500 cursor-pointer">
                   👁️
-                </span>
+                </span> */}
               </div>
             </div>
             {errorMessage && (
