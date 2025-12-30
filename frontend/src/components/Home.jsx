@@ -55,41 +55,64 @@ function Home() {
     }
   };
 
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    autoplay: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
+  // var settings = {
+  //   dots: true,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   initialSlide: 0,
+  //   autoplay: true,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 2,
+  //         infinite: true,
+  //         dots: true,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2,
+  //         initialSlide: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //   ],
+  // };
+  const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  centerMode: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
       },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        arrows: false,
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+    },
+  ],
+};
 
   return (
     <div className="bg-gradient-to-r from-black to-slate-700 ">
@@ -158,36 +181,40 @@ function Home() {
             </Link>
           </div>
         </section>
-        <section className="px-4 md:px-10 py-10">
-          <Slider {...settings}>
-            {courses.map((course) => (
-              <div key={course._id} className="px-3">
-                <div className="bg-gray-900 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 md:w-[260px] mx-auto">
-                  {/* Image */}
-                  <img
-                    className="h-36 w-full object-cover"
-                    src={course.image.url}
-                    alt={course.title}
-                  />
+       <section className="px-3 sm:px-6 md:px-10 py-10">
+  <Slider {...settings}>
+    {courses.map((course) => (
+      <div key={course._id}>
+        {/* width control MUST be here */}
+        <div className="mx-auto max-w-[260px] w-full">
+          <div className="bg-gray-900 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
 
-                  {/* Content */}
-                  <div className="p-4 text-center">
-                    <h2 className="text-base font-bold text-white mb-4">
-                      {course.title}
-                    </h2>
+            <img
+              className="h-36 w-full object-cover"
+              src={course.image.url}
+              alt={course.title}
+            />
 
-                    <Link
-                      to={`/buy/${course._id}`}
-                      className="inline-block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-blue-500 duration-300 text-sm"
-                    >
-                      Enroll Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </section>
+            <div className="p-4 text-center">
+              <h2 className="text-base font-bold text-white mb-4">
+                {course.title}
+              </h2>
+
+              <Link
+                to={`/buy/${course._id}`}
+                className="inline-block bg-orange-500 text-white py-2 px-5 rounded-full hover:bg-blue-500 duration-300 text-sm"
+              >
+                Enroll Now
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    ))}
+  </Slider>
+</section>
+
 
         <hr />
         {/* Footer */}
